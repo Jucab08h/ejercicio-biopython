@@ -6,7 +6,7 @@ from Bio.SeqFeature import FeatureLocation
 from Bio.SeqRecord import SeqRecord
 import os.path
 
-filename = "/Users/juditharce/Desktop/sequence.gb"
+filename = input ("ingrese la dirección de su archivo genbank")
 def summarize_contents(filename):
         record = SeqIO.read(filename, "genbank")
         path = os.path.dirname(filename)
