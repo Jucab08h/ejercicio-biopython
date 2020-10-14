@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqFeature import FeatureLocation
@@ -12,5 +14,6 @@ def summarize_contents(filename):
         print(record.name)
         print('path:', path)
         print(record.id)
-        
+
+summarize_contents(filename)        
 
