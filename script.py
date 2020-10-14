@@ -10,10 +10,12 @@ filename = input ("ingrese la dirección de su archivo genbank: ")
 def summarize_contents(filename):
         record = SeqIO.read(filename, "genbank")
         path = os.path.dirname(filename)
-        
-        print(record.name)
-        print('path:', path)
-        print(record.id)
+        records = list(SeqIO.parse (filename, "genbank"))
+
+        print("name: ", record.name)
+        print("path:", path)
+        print("num_records: %i records" % len(records))
+        print("ID: ", record.id)
 
 summarize_contents(filename)        
 
