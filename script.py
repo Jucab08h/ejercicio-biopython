@@ -4,24 +4,27 @@ from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 import os.path
 
-filename = input ("ingrese la dirección de su archivo genbank: ")
+filename = " "
+# ingrese dentro de las comillas la dirección de su archivo genbank
 
 def summarize_contents(filename):
         file = os.path.basename(filename)
         path = os.path.dirname(filename)
-        print("file:", file)
-        print("path:", path)
-       
+
+      #comienza la cadena
+        cadena = " "
+        cadena = ("file: "+ file)
+        cadena += ("\npath: " + path)
         num_records = list(SeqIO.parse(filename, "genbank"))
-        print("num_records: %i " % len(num_records))
-        print("records: ")
-        
-        records = []
+        cadena += ("\nnum_records: " + str(len(num_records)))
+        cadena += ("\nrecords: ")
+
         for Seq_Record in SeqIO.parse(filename, "genbank"):
-                records.append(Seq_Record) #agregamos otro a la lista
-                print("- id: ", Seq_Record.id)
-                print("  name: ", Seq_Record.name)
-                print("  description: ", Seq_Record.description)
+                num_records.append(Seq_Record) #agregamos otro a la lista
+                cadena += ("\n\n- id:" + str(Seq_Record.id))
+                cadena += ("\nname:" + Seq_Record.name)
+                cadena += ("\ndescription:" + str(Seq_Record.description))
+        return cadena
 
-summarize_contents(filename)
-
+result = summarize_contents(filename)
+print(result)
