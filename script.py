@@ -15,7 +15,7 @@ def summarize_contents(filename):
     else:
         tipo = "fasta"
         pass
-    num_records = list(SeqIO.parse(filename, "genbank"))
+    num_records = list(SeqIO.parse(filename, tipo))
     
 #el diccionario 
     Dic = {}    
@@ -27,7 +27,7 @@ def summarize_contents(filename):
     Dic['names:'] = []
     Dic['id:'] = []
     Dic['descriptions:'] = []
-    for Seq_Record in SeqIO.parse(filename, "genbank"):
+    for Seq_Record in SeqIO.parse(filename, tipo):
         Dic['names:'].append(Seq_Record.name)
         Dic['id:'].append(Seq_Record.id)
         Dic['descriptions:'].append(Seq_Record.description)
