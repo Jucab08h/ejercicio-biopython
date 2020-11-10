@@ -38,13 +38,16 @@ if __name__ == "__main__":
 
 
         #secuencias que se desean concatenar 
-Seq1 = Seq("agtgagactcgaggg")
-Seq2 = Seq("AgTgAGAaaTtT")
+Seq1 = Seq(input("ingrese la primera cadena de ADN: "))
+Seq2 = Seq(input("ingrese la segunda cadena de ADN: "))
 
 def concatenate_and_get_reverse_of_complement(Seq1, Seq2):
     secuencia = Seq1 + Seq2  #concatenar 
     inverso = secuencia.reverse_complement() #invertir 
 
-    print(inverso)
+    return inverso
 
-concatenate_and_get_reverse_of_complement(Seq1, Seq2)
+if __name__=="__main__":
+    result = concatenate_and_get_reverse_of_complement(Seq1, Seq2)
+    print (result)
+
